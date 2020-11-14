@@ -18,12 +18,17 @@
             console.log('Lost connexion with server');
         });
 
-        socket.emit('message', {
-            nombre: 'Alex'
-        });
-
         socket.on('server_emited_message', function (payload){
             console.log('Escuchando:', payload );
+        });
+
+        socket.on('new-flutter-message', function (payload){
+            console.log('Recived:', payload );
+        });
+
+        socket.on('active-bands', function (bands){
+            console.clear();
+            console.table( bands );
         });
         
     </script>
